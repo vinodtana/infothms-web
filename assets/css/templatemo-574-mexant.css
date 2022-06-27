@@ -134,7 +134,9 @@ body {
   background: #ff511a;
   color: #fff;
 }
-
+.section-heading-email {
+  margin-top: 100px;
+}
 @media (max-width: 991px) {
   html, body {
     overflow-x: hidden;
@@ -1168,7 +1170,7 @@ partners
 
 section.partners {
   background-color: #212741;
-  padding: 80px 0px;
+  /* padding: 80px 0px; */
 }
 
 section.partners .item {

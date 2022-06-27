@@ -290,16 +290,16 @@
 
 
 	function visible(partial) {
-        var $t = partial,
-            $w = jQuery(window),
-            viewTop = $w.scrollTop(),
-            viewBottom = viewTop + $w.height(),
-            _top = $t.offset().top,
-            _bottom = _top + $t.height(),
-            compareTop = partial === true ? _bottom : _top,
-            compareBottom = partial === true ? _top : _bottom;
+        // var $t = partial,
+        //     $w = jQuery(window),
+        //     viewTop = $w.scrollTop(),
+        //     viewBottom = viewTop + $w.height(),
+        //     _top = $t.offset().top,
+        //     _bottom = _top + $t.height(),
+        //     compareTop = partial === true ? _bottom : _top,
+        //     compareBottom = partial === true ? _top : _bottom;
 
-        return ((compareBottom <= viewBottom) && (compareTop >= viewTop) && $t.is(':visible'));
+        // return ((compareBottom <= viewBottom) && (compareTop >= viewTop) && $t.is(':visible'));
 
     }
 
@@ -326,5 +326,23 @@
         }
     })
 
+	$(function() {
+		$('#calculate').submit(function(event) {
+			event.preventDefault();
+			var formData =  $(this).serialize();
+			mixpanel.track("financial_plan_form", {Data: formData})
+			$("#calculate")[0].reset()
+			}); 
+		});
+		$(function() {
+			$('#contact').submit(function(event) {
+				event.preventDefault();
+				var formData =  $(this).serialize();
+				mixpanel.track("contact_form", {Data: formData})
+				$("#contact")[0].reset()
+				}); 
+			});
+
+		
 
 })(window.jQuery);
